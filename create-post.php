@@ -18,6 +18,7 @@
 </head>
 
 <body>
+<?php include('db.php') ?>
     <div>
         <?php include('header.php') ?>
     </div>
