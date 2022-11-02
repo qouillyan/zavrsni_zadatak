@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -20,17 +21,19 @@
 
 <body>
 
-<?php include('db.php') ?>
+<?php 
+    include('db.php');
+?>
 
     <?php
-            $postid =  $_GET['id'];
-            $sql = "SELECT * FROM posts WHERE id = $postid";
-            $statement = $connection->prepare($sql);
-            $statement->execute();
-            // $statement->setFetchMode(PDO::FETCH_ASSOC);
-            $posts = $statement->fetch();
-            // $posts = $statement->getData($sql, $connection);
+        $idposta =  $_GET['id'];
+        $sql = "SELECT * FROM posts WHERE id = $idposta";
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+        $posts = $statement->fetch();
+        // $_SESSION['post_id'] = $post_id;
     ?>
+        
         
 <?php include('header.php') ?>
     
@@ -49,8 +52,10 @@
             </div>
             
             <?php include('aside.php') ?>
+            
+        </div>
         
-    </div>
+        <?php include('comments.php') ?>
     
 </main>
 

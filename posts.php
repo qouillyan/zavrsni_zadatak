@@ -49,10 +49,6 @@
                     
         <?php } ?>
             
-            <!-- <pre>
-            <?php print_r($posts); ?>
-            </pre> -->
-
             <?php include('aside.php') ?>
         
         <nav class="blog-pagination">
