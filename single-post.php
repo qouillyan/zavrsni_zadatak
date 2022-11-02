@@ -23,32 +23,32 @@
 <?php include('db.php') ?>
 
     <?php
-        $sql = "SELECT * FROM posts";
-        $singlePost = getData($sql, $connection);
+            $postid =  $_GET['id'];
+            $sql = "SELECT * FROM posts WHERE id = $postid";
+            $statement = $connection->prepare($sql);
+            $statement->execute();
+            // $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $posts = $statement->fetch();
+            // $posts = $statement->getData($sql, $connection);
     ?>
-
+        
 <?php include('header.php') ?>
     
 <main role="main" class="container">
     
     <div class="row">
-        
+            
             <div class="col-sm-8 blog-main">
             
-                <div class="blog-post">
-                    <a href="single-post.php"><h2 class="blog-post-title"> <?php echo($singlePost['title']) ?></h2></a>
-                    <p class="blog-post-meta"><?php echo($singlePost['created_at']) ?> by <a href="#"> <?php echo($singlePost['author']) ?></a></p>
-                    <p><?php echo($singlePost['body']) ?></p>
+                <div class="blog-singlePost">
+                    <a href="<?php echo $target ?>"><h2 class="blog-post-title"> <?php echo($posts['title']) ?></h2></a>
+                    <p class="blog-post-meta"><?php echo($posts['created_at']) ?> by <a href="#"> <?php echo($posts['author']) ?></a></p>
+                    <p><?php echo($posts['body']) ?></p>
                 </div>
 
-            </div>  
+            </div>
             
             <?php include('aside.php') ?>
-        
-        <nav class="blog-pagination">
-            <a class="btn btn-outline-primary" href="#">Older</a>
-            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-        </nav>
         
     </div>
     

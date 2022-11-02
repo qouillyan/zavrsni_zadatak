@@ -22,30 +22,37 @@
     <?php include('db.php') ?>
     
     <?php
-    $sql = "SELECT * FROM posts";
-    $statement = $connection->prepare($sql);
-    $statement->execute();
-    $posts = $statement->fetchAll();
+        $sql = "SELECT * FROM posts ORDER BY created_at DESC";
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $posts = $statement->fetchAll();
     ?>
+
+
 
 <main role="main" class="container">
     
     <div class="row">
         
         <?php foreach ($posts as $post) { ?>
-            
+
             <div class="col-sm-8 blog-main">
             
                 <div class="blog-post">
-                    <a href="single-post.php"><h2 class="blog-post-title"> <?php echo($post['title']) ?></h2></a>
+                    <a href="single-post.php?id=<?php echo($post['id']) ?>"><h2 class="blog-post-title"> <?php echo($post['title']) ?></h2></a>
                     <p class="blog-post-meta"><?php echo($post['created_at']) ?> by <a href="#"> <?php echo($post['author']) ?></a></p>
                     <p><?php echo($post['body']) ?></p>
                 </div>
 
             </div>
                     
-            <?php } ?>
+        <?php } ?>
             
+            <!-- <pre>
+            <?php print_r($posts); ?>
+            </pre> -->
+
             <?php include('aside.php') ?>
         
         <nav class="blog-pagination">
