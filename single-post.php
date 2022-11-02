@@ -53,9 +53,9 @@
             
             <?php include('aside.php') ?>
             
-        </div>
+    </div>
         
-        <?php include('comments.php') ?>
+    <?php include('comments.php') ?>
     
 </main>
 

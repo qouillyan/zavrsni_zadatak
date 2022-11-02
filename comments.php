@@ -23,7 +23,8 @@
 <?php include('db.php') ?>
 
 <?php
-    $sql = "SELECT * FROM comments";
+    $idposta =  $_GET['id'];
+    $sql = "SELECT * FROM comments WHERE post_id = $idposta";
     $statement = $connection->prepare($sql);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
