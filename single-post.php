@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -31,7 +30,6 @@
         $statement = $connection->prepare($sql);
         $statement->execute();
         $posts = $statement->fetch();
-        // $_SESSION['post_id'] = $post_id;
     ?>
         
         
