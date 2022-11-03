@@ -44,7 +44,7 @@
     </ul>
 
     <?php } ?>
-<?php } else { echo "<h5 id='zero-comments'>" . "zero comments" . "</h5>"; }?>
+<?php } else { echo "<h5 id='zero-comments'>" . "zero comments" . "</h5>"; } ?>
 <br>
 
 </body>

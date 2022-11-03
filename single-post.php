@@ -42,7 +42,7 @@
             <div class="col-sm-8 blog-main">
             
                 <div class="blog-singlePost">
-                    <a href="<?php echo $target ?>"><h2 class="blog-post-title"> <?php echo($posts['title']) ?></h2></a>
+                    <a href="all-posts.php"><h2 class="blog-post-title"> <?php echo($posts['title']) ?></h2></a>
                     <p class="blog-post-meta"><?php echo($posts['created_at']) ?> by <a href="#"> <?php echo($posts['author']) ?></a></p>
                     <p><?php echo($posts['body']) ?></p>
                 </div>

@@ -22,17 +22,18 @@
     <?php include('db.php') ?>
     
     <?php
-        $sql = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 3";
+        $sql = "SELECT * FROM posts ORDER BY created_at DESC";
         $statement = $connection->prepare($sql);
         $statement->execute();
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         $posts = $statement->fetchAll();
     ?>
 
-
+<?php include('header.php') ?>
 
 <main role="main" class="container">
     
+
     <div class="row">
         
         <?php foreach ($posts as $post) { ?>
