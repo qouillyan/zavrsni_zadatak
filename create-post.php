@@ -2,25 +2,30 @@
 
 include('db.php');
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 
     $title = $_POST['title'];
     $author = $_POST['author'];
     $body = $_POST['body'];
 
     
-    if(empty($title) || empty($author) || empty($body)) {
-        echo("Fields missing.");
+    if (empty($title) || empty($author) || empty($body)) {
+        echo "<script src='alert.js'></script>";
     } else {
         
-        // $sql = "SELECT COUNT('id') + 1 FROM posts";
-        // $statement = $connection->prepare($sql);
-        // $statement->execute();
-        // $idCount = $statement->fetch();
-        $currentDate = date('Y-m-d');
+        $sql = "SELECT COUNT('id') + 1 FROM posts";
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+        $idCount = $statement->fetch();
 
-            $sql = "INSERT INTO posts (title, body, author, created_at)
-            VALUES('$title', '$author', '$body', '$currentDate')";
+        $stringify = json_encode($idCount);
+        $idString = substr($stringify, 21, 1);
+        $id = (int)$idString;
+
+        $currentDate = date('Y-m-d H:i:s');
+
+            $sql = "INSERT INTO posts (id, title, body, author, created_at)
+            VALUES('$id', '$title', '$body', '$author', '$currentDate')";
 
             $statement = $connection->prepare($sql);
             $statement->execute();
@@ -29,7 +34,7 @@ if(isset($_POST['submit'])) {
         
         }
 
-    } 
+} 
 
 ?>
 
