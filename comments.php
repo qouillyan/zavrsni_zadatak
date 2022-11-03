@@ -33,16 +33,19 @@
 
 <h3>COMMENTS</h3><hr>
 
-<?php foreach ($comments as $comment) { ?>
+<?php if ($comments) { ?>
+    <?php foreach ($comments as $comment) { ?>
 
-<ul id="komentar">
-    <br>
-    <li><?php echo $comment['author'] . ': ' . $comment['text']?></li>
-    <br>
-    <!-- Napravio sam svoj custom CSS jer to što se traži u zadatku izgleda ružno (zadatak 12.) -->
-</ul>
+    <ul id="komentar">
+        <br>
+        <li><?php echo $comment['author'] . ': ' . $comment['text']?></li>
+        <br>
+        <!-- Napravio sam svoj custom CSS jer to što se traži u zadatku izgleda ružno (zadatak 12.) -->
+    </ul>
 
-<?php } ?>
+    <?php } ?>
+<?php } else { echo "<h5 id='zero-comments'>" . "zero comments" . "</h5>"; }?>
+<br>
 
 </body>
 </html>
