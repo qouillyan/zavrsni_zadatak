@@ -25,3 +25,12 @@ h1, h2, h3, h4, h5, h6 {
     color: rgb(41, 41, 41);
     background-color: rgb(243, 243, 243);
 }
+
+#zero-comments {
+    color:rgb(41, 41, 41);
+    text-align: center;
+    background-color: rgb(243, 243, 243);
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+}
